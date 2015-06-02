@@ -24,10 +24,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func convertToDogYears(sender: UIButton) {
-        let numberOfYears = enterAgeTextField.text.toInt()!
+        let numberOfYears: Int? = enterAgeTextField.text.toInt()
         let conversionFactor = 7
         
-        convertedYearsLabel.text = "\(numberOfYears * conversionFactor)" + " years old in dog years."
+        if let yearsConst = numberOfYears {
+            convertedYearsLabel.text = "\(yearsConst * conversionFactor)" + " years old in dog years."
+        }
+        else {
+            convertedYearsLabel.text = "Please enter a numerical age!"
+        }
         convertedYearsLabel.hidden = false
         
         enterAgeTextField.text = ""
