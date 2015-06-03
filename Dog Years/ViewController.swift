@@ -39,5 +39,46 @@ class ViewController: UIViewController {
         enterAgeTextField.resignFirstResponder()
     }
 
+    @IBAction func convertToRealDogYears(sender: UIButton) {
+        let firstTwoYears: Double = 21
+        let firstTwoFactor: Double = 10.5
+        let afterFirstTwoFactor: Double = 4
+        
+        let letters = NSCharacterSet.letterCharacterSet()
+        let digits = NSCharacterSet.decimalDigitCharacterSet()
+        var letterCount = 0
+        var digitCount = 0
+        var containsOnlyDecimalDigits = true
+        
+        let phrase = enterAgeTextField.text
+        for uni in phrase.unicodeScalars  {
+            if letters.longCharacterIsMember(uni.value) {
+                containsOnlyDecimalDigits = false
+                break
+            }
+        }
+        
+        if containsOnlyDecimalDigits {
+            let numberOfYears: Double = (phrase as NSString).doubleValue
+            var calculatedAge: Double = 0
+            if numberOfYears >= 2 {
+                calculatedAge = firstTwoYears
+                var remainingYears: Double = numberOfYears - 2
+                calculatedAge += (remainingYears * afterFirstTwoFactor)
+            }
+            else {
+                calculatedAge = numberOfYears * firstTwoFactor
+            }
+            
+            convertedYearsLabel.text = "\(calculatedAge)" + " years old in REAL dog years."
+            convertedYearsLabel.hidden = false
+        }
+        else {
+            convertedYearsLabel.text = "Please enter a numerical value!"
+            convertedYearsLabel.hidden = false
+        }
+        enterAgeTextField.text = ""
+        enterAgeTextField.resignFirstResponder()
+    }
 }
 

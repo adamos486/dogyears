@@ -60,6 +60,18 @@
                                     <rect key="frame" x="16" y="55" width="368" height="35"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IR-L1-qXr">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Convert To Real Dog Years">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="174" width="368" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="convertToRealDogYears:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PcJ-Io-Zwf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -69,6 +81,7 @@
                                 <exclude reference="wjh-cn-tel"/>
                                 <exclude reference="h0R-Vv-UI6"/>
                                 <exclude reference="DGk-hw-Rxn"/>
+                                <exclude reference="2IR-L1-qXr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -78,6 +91,7 @@
                                 <include reference="wjh-cn-tel"/>
                                 <include reference="h0R-Vv-UI6"/>
                                 <include reference="DGk-hw-Rxn"/>
+                                <include reference="2IR-L1-qXr"/>
                             </mask>
                         </variation>
                     </view>
