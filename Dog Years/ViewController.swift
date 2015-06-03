@@ -28,10 +28,10 @@ class ViewController: UIViewController {
         let conversionFactor = 7
         
         if let yearsConst = numberOfYears {
-            convertedYearsLabel.text = "\(yearsConst * conversionFactor)" + " years old in dog years."
+            convertedYearsLabel.text = "\(yearsConst * conversionFactor)" + " years old in human years."
         }
         else {
-            convertedYearsLabel.text = "Please enter a numerical age!"
+            convertedYearsLabel.text = "Please enter a numerical whole number age!"
         }
         convertedYearsLabel.hidden = false
         
@@ -45,9 +45,6 @@ class ViewController: UIViewController {
         let afterFirstTwoFactor: Double = 4
         
         let letters = NSCharacterSet.letterCharacterSet()
-        let digits = NSCharacterSet.decimalDigitCharacterSet()
-        var letterCount = 0
-        var digitCount = 0
         var containsOnlyDecimalDigits = true
         
         let phrase = enterAgeTextField.text
@@ -59,22 +56,21 @@ class ViewController: UIViewController {
         }
         
         if containsOnlyDecimalDigits {
-            let numberOfYears: Double = (phrase as NSString).doubleValue
+            let numberOfYears: Double = Double((phrase as NSString).doubleValue)
             var calculatedAge: Double = 0
             if numberOfYears >= 2 {
                 calculatedAge = firstTwoYears
-                var remainingYears: Double = numberOfYears - 2
-                calculatedAge += (remainingYears * afterFirstTwoFactor)
+                calculatedAge += ((numberOfYears - 2) * afterFirstTwoFactor)
             }
             else {
                 calculatedAge = numberOfYears * firstTwoFactor
             }
             
-            convertedYearsLabel.text = "\(calculatedAge)" + " years old in REAL dog years."
+            convertedYearsLabel.text = "\(calculatedAge)" + " years old in REAL human years."
             convertedYearsLabel.hidden = false
         }
         else {
-            convertedYearsLabel.text = "Please enter a numerical value!"
+            convertedYearsLabel.text = "Please enter a numerical age!"
             convertedYearsLabel.hidden = false
         }
         enterAgeTextField.text = ""
